@@ -30,6 +30,13 @@ local on_attach = function(client, bufnr)
   end
 end
 
+local resolve = require('resolve')
+local nearest = resolve.nearest('nvim-lsp.lua')
+local cmds = {}
+if nearest then
+    package.path = package.path .. ";" .. nearest .. "/?.lua"
+    cmds = require('nvim-lsp')
+end
 local servers = { 'hls', 'dartls' }
 for _, lsp in ipairs(servers) do
   local config = {
@@ -39,15 +46,13 @@ for _, lsp in ipairs(servers) do
       debounce_text_changes = 150,
     }
   }
+  if cmds[lsp] then
+      config['cmd'] = cmds[lsp]
+  end
   nvim_lsp[lsp].setup(config)
 end
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -62,8 +67,6 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
       else
         fallback()
       end

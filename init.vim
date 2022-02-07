@@ -5,6 +5,7 @@ Plug 'overcache/NeoSolarized'
 Plug 'ervandew/supertab'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
+Plug 'reasonml-editor/vim-reason-plus'
 
 call plug#end()
 

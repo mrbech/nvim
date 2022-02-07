@@ -6,6 +6,7 @@ Plug 'ervandew/supertab'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
 Plug 'reasonml-editor/vim-reason-plus'
+Plug 'mrbech/nvim-lsplocalconfig'
 
 call plug#end()
 

@@ -31,33 +31,18 @@ local on_attach = function(client, bufnr)
   vim.lsp.codelens.refresh()
 end
 
-local resolve = require('resolve')
-local util = require('util')
-local lsp_config_name = '.lsp.json'
-local nearest = resolve.nearest(lsp_config_name)
-local configs = {}
-if nearest then
-    -- Project local configs
-    configs = vim.json.decode(util.read_all(nearest))
-else
-    configs = { 
-        hls = {},
-        dartls = {}
-    }
-end
-for lsp, c in pairs(configs) do
-  local config = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
+local config = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
   }
-  for k, v in pairs(c) do
-      config[k] = v
-  end
-  nvim_lsp[lsp].setup(config)
-end
+}
+local default_configs = {
+  hls = {},
+  dartls = {}
+}
+require'lsplocalconfig'(config, default_configs)
 
 cmp.setup {
   mapping = {

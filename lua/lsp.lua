@@ -28,17 +28,24 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
   end
+  vim.lsp.codelens.refresh()
 end
 
 local resolve = require('resolve')
-local nearest = resolve.nearest('nvim-lsp.lua')
-local cmds = {}
+local util = require('util')
+local lsp_config_name = '.lsp.json'
+local nearest = resolve.nearest(lsp_config_name)
+local configs = {}
 if nearest then
-    package.path = package.path .. ";" .. nearest .. "/?.lua"
-    cmds = require('nvim-lsp')
+    -- Project local configs
+    configs = vim.json.decode(util.read_all(nearest))
+else
+    configs = { 
+        hls = {},
+        dartls = {}
+    }
 end
-local servers = { 'hls', 'dartls' }
-for _, lsp in ipairs(servers) do
+for lsp, c in pairs(configs) do
   local config = {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -46,8 +53,8 @@ for _, lsp in ipairs(servers) do
       debounce_text_changes = 150,
     }
   }
-  if cmds[lsp] then
-      config['cmd'] = cmds[lsp]
+  for k, v in pairs(c) do
+      config[k] = v
   end
   nvim_lsp[lsp].setup(config)
 end

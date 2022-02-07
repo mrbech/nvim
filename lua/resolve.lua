@@ -19,7 +19,7 @@ return {
             local dir = table.concat(arr, "/")
             local n = dir .. "/" .. file_name
             if file_exists(n) then
-                return dir
+                return n
             end
         end
         return nil

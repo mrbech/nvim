@@ -30,6 +30,10 @@ nnoremap <C-H> <C-W><C-H>
 map <C-c> :noh <RETURN>
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
+" clear hover and sync syntax via space
+noremap <silent> <Space> :silent noh <Bar>echo<cr>:syn sync fromstart<cr>
+
+" Format
 set tabstop=2
 set softtabstop=2
 set expandtab

@@ -43,7 +43,8 @@ local config = {
 }
 local default_configs = {
   hls = {},
-  dartls = {}
+  dartls = {},
+  tsserver = {}
 }
 require'lsplocalconfig'(config, default_configs)
 

@@ -30,20 +30,11 @@ nnoremap <C-H> <C-W><C-H>
 map <C-c> :noh <RETURN>
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
-
-" Haskell
-autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
-" Lua
-autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
-" Dart
-autocmd Filetype dart setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " LSP
 

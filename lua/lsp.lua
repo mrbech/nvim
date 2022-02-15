@@ -22,13 +22,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gl', '<cmd>lua vim.lsp.codelens.refresh()<CR>', opts)
-  buf_set_keymap('n', 'gL', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
 
   if client.resolved_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
   end
-  vim.lsp.codelens.refresh()
+
+  if client.resolved_capabilities.code_lens then
+    vim.lsp.codelens.refresh()
+    buf_set_keymap('n', 'gl', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
+    vim.cmd("autocmd BufWritePre,BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()")
+  end
 end
 
 local config = {

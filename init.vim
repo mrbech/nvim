@@ -7,6 +7,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'mrbech/nvim-lsplocalconfig'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 

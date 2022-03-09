@@ -28,6 +28,7 @@ local on_attach = function(client, bufnr)
   end
 
   if client.resolved_capabilities.code_lens then
+    vim.cmd("highlight default link LspCodeLens Todo")
     vim.lsp.codelens.refresh()
     buf_set_keymap('n', 'gl', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
     vim.cmd("autocmd BufWritePre,BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()")

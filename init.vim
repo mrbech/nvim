@@ -42,5 +42,8 @@ set shiftwidth=2
 set smartindent
 
 " LSP
-
 lua require('lsp')
+
+" Flutter
+autocmd FileType dart autocmd BufWritePost * silent execute '!kill -USR1 $(pgrep -f "[f]lutter_tools.snapshot run")'
+autocmd FileType dart noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep -f "[f]lutter_tools.snapshot run")'<CR>

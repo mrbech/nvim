@@ -44,6 +44,10 @@ set smartindent
 " LSP
 lua require('lsp')
 
+" sigpr development
+noremap <Leader>r <cmd>silent execute '!sigpr restart'<CR>
+autocmd BufWritePost * silent execute '!sigpr restart' 
+
 " Flutter
 autocmd FileType dart autocmd BufWritePost * silent execute '!kill -USR1 $(pgrep -f "[f]lutter_tools.snapshot run")'
 autocmd FileType dart noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep -f "[f]lutter_tools.snapshot run")'<CR>

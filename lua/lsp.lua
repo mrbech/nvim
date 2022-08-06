@@ -46,7 +46,8 @@ local config = {
 local default_configs = {
   hls = {},
   dartls = {},
-  tsserver = {}
+  tsserver = {},
+  rust_analyzer = {}
 }
 require'lsplocalconfig'(config, default_configs)
 

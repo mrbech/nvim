@@ -8,6 +8,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'mrbech/nvim-lsplocalconfig'
 Plug 'easymotion/vim-easymotion'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 
 call plug#end()
 
@@ -31,6 +33,7 @@ nnoremap <C-H> <C-W><C-H>
 map <C-c> :noh <RETURN>
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
+
 " clear hover and sync syntax via space
 noremap <silent> <Space> :silent noh <Bar>echo<cr>:syn sync fromstart<cr>
 
@@ -43,6 +46,10 @@ set smartindent
 
 " LSP
 lua require('lsp')
+
+" Telescope
+lua require('telescope-config')
+
 
 " sigpr development
 noremap <Leader>r <cmd>silent execute '!sigpr restart'<CR>

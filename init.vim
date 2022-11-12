@@ -5,11 +5,11 @@ Plug 'overcache/NeoSolarized'
 Plug 'ervandew/supertab'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'mrbech/nvim-lsplocalconfig'
-Plug 'easymotion/vim-easymotion'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+Plug 'ggandor/leap.nvim'
+Plug 'psiska/telescope-hoogle.nvim'
 
 call plug#end()
 
@@ -49,6 +49,9 @@ lua require('lsp')
 
 " Telescope
 lua require('telescope-config')
+
+" Leap
+lua require('leap').set_default_keymaps()
 
 
 " sigpr development

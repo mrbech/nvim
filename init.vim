@@ -1,7 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'overcache/NeoSolarized'
 Plug 'ervandew/supertab'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
@@ -14,8 +13,6 @@ Plug 'psiska/telescope-hoogle.nvim'
 call plug#end()
 
 " UI
-let g:neosolarized_contrast = "high"
-colorscheme NeoSolarized
 set number
 set wildmode=longest,list,full
 set wildmenu

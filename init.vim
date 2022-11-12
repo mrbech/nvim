@@ -17,6 +17,7 @@ set number
 set wildmode=longest,list,full
 set wildmenu
 set showmatch
+set mouse=""
 
 " Keybindings
 map tn :tabnext <RETURN>

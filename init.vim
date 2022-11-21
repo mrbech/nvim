@@ -18,6 +18,8 @@ set wildmode=longest,list,full
 set wildmenu
 set showmatch
 set mouse=""
+highlight link NormalFloat MsgSeparator
+highlight link LspCodeLens CursorLineSign
 
 " Keybindings
 map tn :tabnext <RETURN>

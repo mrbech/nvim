@@ -78,3 +78,6 @@ autocmd FileType dart noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep
 
 " Avoid parcel reloading issues
 autocmd FileType typescript set backupcopy=yes
+
+" QPDF
+autocmd FileType pdf noremap <Leader>r <cmd>%! fix-qdf<CR> <cmd>%! qpdf --qdf /dev/stdin -<CR>

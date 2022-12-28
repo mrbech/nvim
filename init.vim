@@ -76,3 +76,5 @@ autocmd BufWritePost * silent execute '!sigpr restart'
 autocmd FileType dart autocmd BufWritePost * silent execute '!kill -USR1 $(pgrep -f "[f]lutter_tools.snapshot run")'
 autocmd FileType dart noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep -f "[f]lutter_tools.snapshot run")'<CR>
 
+" Avoid parcel reloading issues
+autocmd FileType typescript set backupcopy=yes

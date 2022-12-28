@@ -1,5 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local cmp = require 'cmp'
+local luasnip = require('luasnip')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -51,6 +52,11 @@ local default_configs = {
 require'lsplocalconfig'(config, default_configs)
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),

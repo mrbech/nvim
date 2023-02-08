@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
   if client.server_capabilities.documentFormattingProvider then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
   end
 
   if client.server_capabilities.codeLensProvider then

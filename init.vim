@@ -11,6 +11,7 @@ Plug 'ggandor/leap.nvim'
 Plug 'psiska/telescope-hoogle.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'adelarsq/neofsharp.vim'
 
 call plug#end()
 
@@ -75,6 +76,9 @@ autocmd BufWritePost * silent execute '!sigpr restart'
 " Flutter
 autocmd FileType dart autocmd BufWritePost * silent execute '!kill -USR1 $(pgrep -f "[f]lutter_tools.snapshot run")'
 autocmd FileType dart noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep -f "[f]lutter_tools.snapshot run")'<CR>
+
+autocmd FileType fsharp autocmd BufWritePost * silent execute '!kill -USR1 $(pgrep -f "[f]lutter_tools.snapshot run")'
+autocmd FileType fsharp noremap <Leader>r <cmd>silent execute '!kill -USR2 $(pgrep -f "[f]lutter_tools.snapshot run")'<CR>
 
 " Avoid parcel reloading issues
 autocmd FileType typescript set backupcopy=yes

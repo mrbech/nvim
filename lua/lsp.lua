@@ -28,7 +28,8 @@ local on_attach = function(client, bufnr)
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
   end
 
-  if client.server_capabilities.codeLensProvider then
+  local code_lens = client.config.code_lens or client.config.code_lens == nil
+  if code_lens and client.server_capabilities.codeLensProvider then
     vim.cmd("highlight default link LspCodeLens Todo")
     vim.lsp.codelens.refresh()
     buf_set_keymap('n', 'gl', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
@@ -49,7 +50,9 @@ local default_configs = {
   tsserver = {},
   rust_analyzer = {},
   clangd = {},
-  fsautocomplete = {},
+  fsautocomplete = {
+    code_lens = false,
+  },
 }
 require'lsplocalconfig'(config, default_configs)
 

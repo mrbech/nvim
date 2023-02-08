@@ -48,6 +48,7 @@ local default_configs = {
   dartls = {},
   tsserver = {},
   rust_analyzer = {},
+  clangd = {},
   fsautocomplete = {},
 }
 require'lsplocalconfig'(config, default_configs)

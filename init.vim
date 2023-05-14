@@ -12,6 +12,8 @@ Plug 'psiska/telescope-hoogle.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'adelarsq/neofsharp.vim'
+Plug 'LnL7/vim-nix'
+Plug 'NoahTheDuke/vim-just'
 
 call plug#end()
 

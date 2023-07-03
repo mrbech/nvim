@@ -19,6 +19,7 @@ call plug#end()
 
 " UI
 set number
+set relativenumber
 set wildmode=longest,list,full
 set wildmenu
 set showmatch

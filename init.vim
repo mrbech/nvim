@@ -63,7 +63,7 @@ lua require('lsp')
 lua require('telescope-config')
 
 " Leap
-lua require('leap').set_default_keymaps()
+lua require('leap-config')
 
 " LuaSnip
 imap <silent><expr> <F2> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<F2>' 

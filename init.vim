@@ -6,7 +6,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
 Plug 'mrbech/nvim-lsplocalconfig'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ggandor/leap.nvim'
 Plug 'psiska/telescope-hoogle.nvim'
 Plug 'L3MON4D3/LuaSnip'

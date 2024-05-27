@@ -26,6 +26,7 @@ set showmatch
 set mouse=""
 highlight link NormalFloat MsgSeparator
 highlight link LspCodeLens CursorLineSign
+highlight Normal guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE
 
 " Keybindings
 map tn :tabnext <RETURN>

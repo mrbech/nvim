@@ -5,13 +5,18 @@ local luasnip = require('luasnip')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local on_init = function(client, initialization_result)
+  if client.server_capabilities then
+    client.server_capabilities.semanticTokensProvider = nil
+  end
+end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  client.server_capabilities.semanticTokensProvider = nil
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -42,6 +47,7 @@ end
 
 local config = {
   capabilities = capabilities,
+  on_init = on_init,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
